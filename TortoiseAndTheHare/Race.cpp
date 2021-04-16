@@ -129,8 +129,12 @@ public:
 			this->tortoise.PrintPosition();
 			Sleep(1000);
 		}
-
-		this->PrintEnd();
+		if (this->tortoise.Position == 70) {
+			this->PrintEnd(this->tortoise.DisplayCharacter);
+		}
+		else {
+			this->PrintEnd(this->hare.DisplayCharacter);
+		}
 	}
 	int GetMoveValue() {
 		srand(time(NULL));
@@ -179,8 +183,15 @@ public:
 			}
 		}
 	}
-	void PrintEnd() {
+	void PrintEnd(char winner) {
 		cout << "WHAT A RACE!" << endl;
+		if (winner == 'T') {
+			cout << "The Tortoise won!" << endl;
+		}
+		else {
+			cout << "The Hare won!" << endl;
+		}
+		cout << "I knew it from the start..." << endl;
 	}
 };
 
